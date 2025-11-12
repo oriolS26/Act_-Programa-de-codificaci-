@@ -92,5 +92,26 @@ public class Conversions {
         }
         return decimal;
     }
+    public int hexadecimalAdecimal(String numero) {
+        int decimal = 0;
+        for (int posicio = 0; posicio < numero.length(); posicio++) {
+            char caracter = numero.charAt(posicio);
 
+            if (!((posicio == 0 && caracter == '0') || (posicio == 1 && caracter == 'x'))) {
+                decimal = decimal * 16;
+                if (caracter >= '0' && caracter <= '9') {
+                    decimal += caracter - '0';
+                } else if (caracter >= 'A' && caracter <= 'F') {
+                    decimal += caracter - 'A' + 10;
+                } else if (caracter >= 'a' && caracter <= 'f') {
+                    decimal += caracter - 'a' + 10;
+                } else {
+                    System.out.println("Número hexadecimal invàlid (només dígits 0-9 i lletres A-F)");
+                    return -1;  
+                }
+            }
+        }
+        return decimal;
+    }
+    
 }
