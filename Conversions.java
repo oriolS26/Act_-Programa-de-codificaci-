@@ -18,5 +18,24 @@ public class Conversions {
             return "decimal";
         }
     }
-    
+    public int binariAdecimal(String numero) {
+        int decimal = 0;
+        for (int posicio = 0; posicio < numero.length(); posicio++) {
+            char caracter = numero.charAt(posicio);
+
+            if (!((posicio == 0 && caracter == '0') || (posicio == 1 && caracter == 'b'))) {
+                if (caracter == '1') {
+                    decimal = decimal * 2 + 1;
+                }
+                else if (caracter == '0') {
+                    decimal = decimal * 2 + 0;
+                }
+                else {
+                    System.out.println("Número binari invàlid (només 0 o 1)");
+                    return -1;  
+                }
+            }
+        }
+        return decimal;
+    }
 }
