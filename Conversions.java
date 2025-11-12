@@ -113,5 +113,15 @@ public class Conversions {
         }
         return decimal;
     }
-    
+    public String decimalABinari(int numero) {
+        if (numero == 0) return "0b0";
+
+        StringBuilder binari = new StringBuilder();
+        while (numero > 0) {
+            binari.insert(0, numero % 2);
+            numero /= 2;
+        }
+        binari.insert(0, "0b");
+        return binari.toString();
+    }
 }
