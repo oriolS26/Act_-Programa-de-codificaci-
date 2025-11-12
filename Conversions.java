@@ -124,4 +124,16 @@ public class Conversions {
         binari.insert(0, "0b");
         return binari.toString();
     }
+    public String decimalAHexadecimal(int numero) {
+        if (numero == 0) return "0x0";
+
+        StringBuilder hexadecimal = new StringBuilder();
+        char[] digits = "0123456789ABCDEF".toCharArray();
+        while (numero > 0) {
+            hexadecimal.insert(0, digits[numero % 16]);
+            numero /= 16;
+        }
+        hexadecimal.insert(0, "0x");
+        return hexadecimal.toString();
+    }
 }
